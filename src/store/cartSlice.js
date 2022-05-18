@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialCartState = {
-  cartIsShown: true,
   cartArray: [],
   totalQuantity: 0,
 };
@@ -10,13 +9,8 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: initialCartState,
   reducers: {
-    cartIsShownHandler: (state) => {
-      state.cartIsShown = !state.cartIsShown;
-    },
-
     cartAddHandler: (state, action) => {
       const newItem = action.payload;
-      // console.log(newItem.id, state.cartArray);
 
       const existingItem = state.cartArray.find(
         (item) => item.id === newItem.id
